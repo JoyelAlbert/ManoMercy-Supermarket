@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 app.use(cors({
   origin: [
     "http://localhost:5173",        // for local development
-    "https://manomercysupermarket.netlify.app"  // your production frontend
+   "mano-mercy-supermarket.vercel.app"  // your production frontend
   ],
   credentials: true,  // allow cookies / auth headers if needed
 }));
@@ -952,5 +952,6 @@ app.listen(PORT, () => {
   console.log(`   GET http://localhost:${PORT}/api/v1/slider`);
 
 });
+
 
 
