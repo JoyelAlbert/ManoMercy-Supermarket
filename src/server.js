@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 app.use(cors({
   origin: [
     "http://localhost:5173",        // for local development
-   "mano-mercy-supermarket.vercel.app"  // your production frontend
+   "https://mano-mercy-supermarket.vercel.app/"  // your production frontend
   ],
   credentials: true,  // allow cookies / auth headers if needed
 }));
