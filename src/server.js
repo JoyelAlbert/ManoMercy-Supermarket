@@ -34,10 +34,12 @@ app.use((req, res, next) => {
 
 // CORS
 app.use(cors({
-  origin: ['http://localhost:5173','http://localhost:5001','https://manomercysupermarket.netlify.app/'],
-  credentials: true
+  origin: [
+    "http://localhost:5173",        // for local development
+    "https://manomercysupermarket.netlify.app"  // your production frontend
+  ],
+  credentials: true,  // allow cookies / auth headers if needed
 }));
-
 // Rate limiting
 import rateLimit from 'express-rate-limit';
 const limiter = rateLimit({
@@ -950,4 +952,5 @@ app.listen(PORT, () => {
   console.log(`   GET http://localhost:${PORT}/api/v1/slider`);
 
 });
+
 
