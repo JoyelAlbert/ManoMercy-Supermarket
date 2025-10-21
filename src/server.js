@@ -367,38 +367,38 @@ app.get('/api/v1/users/:id', authenticateToken, requireAdmin, async (req, res) =
 });
 
 // UPDATE USER ROLE (Admin only)
-app.patch('/api/v1/users/:id/role', authenticateToken, requireAdmin, async (req, res) => {
-  try {
-    const { role } = req.body;
+// app.patch('/api/v1/users/:id/role', authenticateToken, requireAdmin, async (req, res) => {
+//   try {
+//     const { role } = req.body;
     
-    if (!['user', 'admin'].includes(role)) {
-      return res.status(400).json({ message: 'Invalid role' });
-    }
+//     if (!['user', 'admin'].includes(role)) {
+//       return res.status(400).json({ message: 'Invalid role' });
+//     }
 
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
-      { role },
-      { new: true, runValidators: true }
-    ).select('-password');
+//     const updatedUser = await User.findByIdAndUpdate(
+//       req.params.id,
+//       { role },
+//       { new: true, runValidators: true }
+//     ).select('-password');
 
-    if (!updatedUser) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+//     if (!updatedUser) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
 
-    console.log('✅ User role updated:', updatedUser.email, 'New role:', updatedUser.role);
-    res.json({
-      message: 'User role updated successfully',
-      user: updatedUser
-    });
+//     console.log('✅ User role updated:', updatedUser.email, 'New role:', updatedUser.role);
+//     res.json({
+//       message: 'User role updated successfully',
+//       user: updatedUser
+//     });
 
-  } catch (error) {
-    console.error('❌ User role update error:', error.message);
-    res.status(500).json({ 
-      message: 'Failed to update user role',
-      error: error.message 
-    });
-  }
-});
+//   } catch (error) {
+//     console.error('❌ User role update error:', error.message);
+//     res.status(500).json({ 
+//       message: 'Failed to update user role',
+//       error: error.message 
+//     });
+//   }
+// });
 
 // ================== SLIDER IMAGE ROUTES ==================
 
@@ -950,6 +950,7 @@ app.listen(PORT, () => {
   console.log(`   GET http://localhost:${PORT}/api/v1/slider`);
 
 });
+
 
 
 
