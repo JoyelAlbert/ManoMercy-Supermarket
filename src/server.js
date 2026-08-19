@@ -844,7 +844,7 @@ function createCRUDRoutes(model, route) {
     }
   });
 }
-
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 // ================== PRODUCT ROUTES ==================
 console.log("🛒 Setting up product routes...");
 createCRUDRoutes(Grossory, "grossory_products");
