@@ -890,7 +890,7 @@ const fetchHomeProductsWithQuery = () => {
         </div>
         
         <div className="home-footer-bottom">
-          <p>&copy; 2025 Mercy Supermarket. All rights reserved.</p>
+          <p>&copy; 2026 Mercy Supermarket. All rights reserved.</p>
         </div>
       </footer>
     </div>
