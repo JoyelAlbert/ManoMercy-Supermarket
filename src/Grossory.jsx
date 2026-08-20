@@ -1,8 +1,7 @@
 import React, { useState, useMemo, useEffect, useCallback } from "react";
 import { useCart } from "./CartContext";
 import { useNavigate, Link } from "react-router-dom";
-import useProducts from "./useProducts";
-import "./Products.css";
+ import "./Products.css";
 import ProductImage from "./ProductImage";
 import defaultGroceryProducts from "./data/defaultGroceryProducts";
 
@@ -10,16 +9,14 @@ import defaultGroceryProducts from "./data/defaultGroceryProducts";
  
 
 function Grocery() {
-  const { cartItems = [], addToCart } = useCart();
+   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
+
   const allProducts = defaultGroceryProducts;
-  // Use the custom hook
-  // const {
-  //   allProducts,
-  //   isLoading,
-  //   error,
-  //   fetchProducts
-  // } = useProducts( "https://dummyjson.com/products/category/groceries");
+
+  const isLoading = false;
+  const error = null;
+  const fetchProducts = () => {};
 
   const [search, setSearch] = useState("");
   const [mainCategory, setMainCategory] = useState("grossory");
