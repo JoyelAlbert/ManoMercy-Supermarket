@@ -76,61 +76,33 @@ const getFallbackProducts = () => {
   setError(null);
 
   try {
-    console.log(`🔄 Fetching products from: ${baseUrl}`);
+    let products = [];
 
-    const res = await fetch(baseUrl, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    console.log(`📊 Response status: ${res.status} ${res.statusText}`);
-
-    if (!res.ok) {
-      const errorText = await res.text();
-      console.error("❌ Server error response:", errorText);
-      throw new Error(`Server error: ${res.status} ${res.statusText}`);
+    if (baseUrl.includes("grossory_products")) {
+      products = defaultGroceryProducts;
+    } 
+    else if (baseUrl.includes("snacks_products")) {
+      products = defaultSnacksProducts;
+    } 
+    else if (baseUrl.includes("soap_products")) {
+      products = defaultSoapProducts;
+    } 
+    else if (baseUrl.includes("beauty_products")) {
+      products = defaultBeautyProducts;
     }
 
-   const data = await res.json();
+    setAllProducts(products);
 
-console.log("📦 API Response:", data);
-
-const products = Array.isArray(data)
-  ? data
-  : data.products || [];
-
-console.log(`✅ Successfully fetched ${products.length} products`);
-
-setAllProducts(products);
-
-setHomeProducts(
-  products.filter((p) => p.showOnHome).slice(0, 8)
-    );
-
-  } catch (err) {
-    console.error("❌ Fetch error:", err);
-
-    // Use default products when API fails
-    const fallbackProducts = getFallbackProducts();
-
-    console.log(
-      `📦 Using ${fallbackProducts.length} default products`
-    );
-
-    setAllProducts(fallbackProducts);
+    // Home products
     setHomeProducts(
-      fallbackProducts
+      products
         .filter((p) => p.showOnHome)
         .slice(0, 8)
     );
 
-    // Don't show error if fallback products are available
-    if (fallbackProducts.length === 0) {
-      setError(err.message || "Failed to fetch products");
-    }
-
+  } catch (err) {
+    console.error("❌ Error loading default products:", err);
+    setError(err.message);
   } finally {
     setIsLoading(false);
   }
