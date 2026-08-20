@@ -13,6 +13,13 @@ import ProductImage from "./ProductImage";
   const navigate = useNavigate();
   const API_BASE = "http://localhost:5001";
 
+  const [homeProducts, setHomeProducts] = useState({
+  grocery: [],
+  snacks: [],
+  soap: [],
+  beauty: [],
+});
+
   // States
   const [search, setSearch] = useState("");
  
