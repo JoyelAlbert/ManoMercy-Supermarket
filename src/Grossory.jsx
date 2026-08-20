@@ -15,7 +15,7 @@ function Grocery() {
     isLoading,
     error,
     fetchProducts
-  } = useProducts("https://manomercy-supermarket.onrender.com/api/v1/grossory_products");
+  } = useProducts("https://dummyjson.com/products/category/groceries");
 
   const [search, setSearch] = useState("");
   const [mainCategory, setMainCategory] = useState("grossory");
