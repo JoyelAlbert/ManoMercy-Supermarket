@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 
 // CORS
 app.use(cors({
-  origin: ["https://manomercysupermarket.netlify.app","https://mano-mercy-supermarket.vercel.app"],
+  origin: ["https://manomercysupermarket.netlify.app","https://mano-mercy-supermarket.vercel.app,https://mercysupermarket.netlify.app"],
   credentials: true,
 }));
 
