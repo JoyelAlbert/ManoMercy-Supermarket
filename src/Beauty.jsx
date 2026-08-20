@@ -9,11 +9,12 @@ import defaultBeautyProducts from "./data/defaultBeautyProducts";
 function Beauty() {
   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
-  const allProducts = defaultBeautyProducts;   
+
+  const allProducts = defaultBeautyProducts;
+
   const isLoading = false;
   const error = null;
   const fetchProducts = () => {};
-
   const [search, setSearch] = useState("");
   const [activeSubcategory, setActiveSubcategory] = useState("All");
   const [showPopup, setShowPopup] = useState(false);
