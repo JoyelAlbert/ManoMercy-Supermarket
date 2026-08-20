@@ -7,6 +7,7 @@ import defaultGroceryProducts from "./data/defaultGroceryProducts";
 import defaultSnacksProducts from "./data/defaultSnacksProducts";
 import defaultSoapProducts from "./data/defaultSoapProducts";
 import defaultBeautyProducts from "./data/defaultBeautyProducts";
+import ProductImage from "./ProductImage";
  const Home = () => {
   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
@@ -665,21 +666,29 @@ import defaultBeautyProducts from "./data/defaultBeautyProducts";
                 {!loading && !error && filtered.map((p) => (
                   <div className={`home-product-card ${!p.inStock ? 'home-out-of-stock' : ''}`} key={p._id}>
                     <div className="home-product-image">
-                      <img src={p.image} alt={p.name} />
-                      {p.discount > 0 && (
-                        <span className="home-discount-badge label">-{p.discount}%</span>
-                      )}
-                      {p.showOnHome && (
-                        <span className="home-home-badge" title="Featured on Home">
-                          <i className="fas fa-home"></i>
-                        </span>
-                      )}
-                      {!p.inStock && (
-                        <div className="home-out-of-stock-overlay">
-                          <span>Out of Stock</span>
-                        </div>
-                      )}
-                    </div>
+                     <ProductImage
+                       image={p.image}
+                       alt={p.name}
+                     />
+                   
+                     {p.discount > 0 && (
+                       <span className="home-discount-badge label">
+                         -{p.discount}%
+                       </span>
+                     )}
+                   
+                     {p.showOnHome && (
+                       <span className="home-home-badge" title="Featured on Home">
+                         <i className="fas fa-home"></i>
+                       </span>
+                     )}
+                   
+                     {!p.inStock && (
+                       <div className="home-out-of-stock-overlay">
+                         <span>Out of Stock</span>
+                       </div>
+                     )}
+                   </div>
                     
                     <div className="home-product-info">
                       <h3 className="home-product-name">{p.name}</h3>
