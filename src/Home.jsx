@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import "./Home.css";
+import defaultGroceryProducts from "./data/defaultGroceryProducts";
+import defaultSnacksProducts from "./data/defaultSnacksProducts";
+import defaultSoapProducts from "./data/defaultSoapProducts";
+import defaultBeautyProducts from "./data/defaultBeautyProducts";
  const Home = () => {
   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
