@@ -15,12 +15,7 @@ import ProductImage from "./ProductImage";
 
   // States
   const [search, setSearch] = useState("");
-  const [homeProducts, setHomeProducts] = useState({
-    grocery: [],
-    snacks: [],
-    soap: [],
-    beauty: [],
-  });
+ 
   const [sliderImages, setSliderImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sliderLoading, setSliderLoading] = useState(true);
@@ -98,30 +93,17 @@ import ProductImage from "./ProductImage";
   // };
 
   // Alternative method using query parameters (if your backend supports it)
- const fetchHomeProductsWithQuery = () => {
+const fetchHomeProductsWithQuery = () => {
   try {
     setLoading(true);
     setError(null);
 
     const homeProductsData = {
-      grocery: defaultGroceryProducts
-        .filter((product) => product.showOnHome)
-        .slice(0, 8),
-
-      snacks: defaultSnacksProducts
-        .filter((product) => product.showOnHome)
-        .slice(0, 8),
-
-      soap: defaultSoapProducts
-        .filter((product) => product.showOnHome)
-        .slice(0, 8),
-
-      beauty: defaultBeautyProducts
-        .filter((product) => product.showOnHome)
-        .slice(0, 8),
+      grocery: defaultGroceryProducts.slice(0, 8),
+      snacks: defaultSnacksProducts.slice(0, 8),
+      soap: defaultSoapProducts.slice(0, 8),
+      beauty: defaultBeautyProducts.slice(0, 8),
     };
-
-    console.log("🏠 Default home products:", homeProductsData);
 
     setHomeProducts(homeProductsData);
     setLoading(false);
