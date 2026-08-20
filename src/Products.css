@@ -1,0 +1,1047 @@
+/* ================= Global ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f5f5f7;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ================= Loading States ================= */
+.page-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 50vh;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.page-loading i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.page-loading h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.page-loading p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Admin Loading */
+.admin-loading i {
+  color: #2cac96;
+  animation: spin 1.5s linear infinite;
+}
+
+/* User Loading */
+.user-loading i {
+  color: #8c0a34;
+  animation: pulse 1.5s infinite;
+}
+
+/* Cart Loading */
+.cart-loading i {
+  color: #28a745;
+  animation: bounce 1s infinite;
+}
+
+/* Profile Loading */
+.profile-loading i {
+  color: #17a2b8;
+  animation: flip 2s infinite;
+}
+
+/* Orders Loading */
+.orders-loading i {
+  color: #ffc107;
+  animation: shake 0.5s infinite;
+}
+
+/* Products Loading */
+.products-loading i {
+  color: #6f42c1;
+  animation: tada 1s infinite;
+}
+
+/* Button Loading */
+.button-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.button-loading i {
+  font-size: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+/* Loading Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes flip {
+  0% { transform: rotateY(0); }
+  50% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes tada {
+  0% { transform: scale(1); }
+  10%, 20% { transform: scale(0.9) rotate(-3deg); }
+  30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+  40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* ===================================================== */
+/* ================= Admin Pages ====================== */
+/* ===================================================== */
+
+/* Container */
+.grossory-home-container,
+.snacks-home-container,
+.soap-home-container,
+.beauty-home-container {
+  width: 100%;
+  border-radius: 12px;
+  background-color: transparent;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  min-height: 400px;
+}
+
+/* Title Bar */
+.grossory-home-title-bar,
+.snacks-home-title-bar,
+.soap-home-title-bar,
+.beauty-home-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background: rgb(44, 172, 150);
+  color: #fff;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.grossory-home-title-bar h1,
+.snacks-home-title-bar h1,
+.soap-home-title-bar h1,
+.beauty-home-title-bar h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Tabs */
+.grossory-home-tabs,
+.snacks-home-tabs,
+.soap-home-tabs,
+.beauty-home-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+.grossory-home-tabs button,
+.snacks-home-tabs button,
+.soap-home-tabs button,
+.beauty-home-tabs button {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-left: 5px;
+  gap: 5px;
+}
+
+.grossory-home-tabs button.active,
+.snacks-home-tabs button.active,
+.soap-home-tabs button.active,
+.beauty-home-tabs button.active {
+  background: rgb(44, 172, 150);
+  color: #fff;
+  border: none;
+  margin-left: 0;
+}
+
+.grossory-home-title-bar button,
+.snacks-home-title-bar button,
+.soap-home-title-bar button,
+.beauty-home-title-bar button {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  gap: 25px;
+  margin-right: 5px;
+}
+
+.grossory-home-title-bar button.active,
+.snacks-home-title-bar button.active,
+.soap-home-title-bar button.active,
+.beauty-home-title-bar button.active {
+  background: rgb(140, 238, 222);
+  color: #fff;
+  border: none;
+  margin-left: 0;
+  padding: 10px;
+}
+
+/* Product List */
+.grossory-home-list,
+.snacks-home-list,
+.soap-home-list,
+.beauty-home-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Product Card */
+.grossory-home-card,
+.snacks-home-card,
+.soap-home-card,
+.beauty-home-card {
+  flex: 1 1 22%;
+  min-width: 220px;
+  max-width: 280px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.grossory-home-card img,
+.snacks-home-card img,
+.soap-home-card img,
+.beauty-home-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.grossory-home-card:hover img,
+.snacks-home-card:hover img,
+.soap-home-card:hover img,
+.beauty-home-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Card Actions */
+.grossory-home-actions button,
+.snacks-home-actions button,
+.soap-home-actions button,
+.beauty-home-actions button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+/* Delete Button */
+.grossory-home-actions button.delete,
+.snacks-home-actions button.delete,
+.soap-home-actions button.delete,
+.beauty-home-actions button.delete {
+  background: linear-gradient(135deg, #d32f2f, #ff5252);
+  color: #fff;
+}
+
+/* Edit Button */
+.grossory-home-actions button.edit,
+.snacks-home-actions button.edit,
+.soap-home-actions button.edit,
+.beauty-home-actions button.edit {
+  background: linear-gradient(135deg, #1976d2, #4dabf5);
+  color: #fff;
+}
+
+/* ===================================================== */
+/* ================= User Pages ======================= */
+/* ===================================================== */
+
+.grossory-user-container,
+.snacks-user-container,
+.soap-user-container,
+.beauty-user-container {
+  width: 100%;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  min-height: 400px;
+}
+
+/* Title Bar */
+.grossory-user-title-bar,
+.snacks-user-title-bar,
+.soap-user-title-bar,
+.beauty-user-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: linear-gradient(135deg, #8c0a34, #ff3f6c);
+  color: white;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.grossory-user-title-bar h1,
+.snacks-user-title-bar h1,
+.soap-user-title-bar h1,
+.beauty-user-title-bar h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Product List */
+.grossory-user-list,
+.snacks-user-list,
+.soap-user-list,
+.beauty-user-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* User Card */
+.grossory-user-card,
+.snacks-user-card,
+.soap-user-card,
+.beauty-user-card {
+  flex: 1 1 22%;
+  min-width: 220px;
+  max-width: 280px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 16px 28px rgba(10, 9, 9, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.grossory-user-card img,
+.snacks-user-card img,
+.soap-user-card img,
+.beauty-user-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.grossory-user-card:hover img,
+.snacks-user-card:hover img,
+.soap-user-card:hover img,
+.beauty-user-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Text content */
+.grossory-user-card h2,
+.snacks-user-card h2,
+.soap-user-card h2,
+.beauty-user-card h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.grossory-user-card p,
+.snacks-user-card p,
+.soap-user-card p,
+.beauty-user-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Action Buttons */
+.grossory-user-actions button,
+.snacks-user-actions button,
+.soap-user-actions button,
+.beauty-user-actions button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  font-weight: 500;
+  background: linear-gradient(135deg, #8c0a34, #ff3f6c);
+  color: white;
+  transition: background 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+.grossory-user-actions button:hover,
+.snacks-user-actions button:hover,
+.soap-user-actions button:hover,
+.beauty-user-actions button:hover {
+  background: linear-gradient(135deg, #70082c, #ff1f5a);
+}
+
+/* ===================== Modals - Fixed Overlay ===================== */
+/* Fix modal background scrolling */
+.grossory-home-modal,
+.snacks-home-modal,
+.soap-home-modal,
+.beauty-home-modal,
+.grossory-user-modal,
+.snacks-user-modal,
+.soap-user-modal,
+.beauty-user-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  overflow-y: auto; /* ✅ allows scrolling inside modal background */
+}
+
+/* Fix modal content overflow */
+.grossory-home-modal-content,
+.snacks-home-modal-content,
+.soap-home-modal-content,
+.beauty-home-modal-content,
+.grossory-user-modal-content,
+.snacks-user-modal-content,
+.soap-user-modal-content,
+.beauty-user-modal-content {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 30px 25px;
+  width: 420px;
+  max-width: 90%;
+  max-height: 90vh; /* ✅ keeps modal inside screen */
+  overflow-y: auto; /* ✅ adds scroll if content is too tall */
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: modalPop 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 10000;
+}
+
+/* Optional – make scrollbar subtle */
+.grossory-home-modal-content::-webkit-scrollbar,
+.snacks-home-modal-content::-webkit-scrollbar,
+.soap-home-modal-content::-webkit-scrollbar,
+.beauty-home-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.grossory-home-modal-content::-webkit-scrollbar-thumb,
+.snacks-home-modal-content::-webkit-scrollbar-thumb,
+.soap-home-modal-content::-webkit-scrollbar-thumb,
+.beauty-home-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.grossory-user-modal-content.button,
+.snacks-user-modal-content.button,
+.soap-user-modal-content.button,
+.beauty-user-modal-content.button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  font-weight: 500;
+  background: linear-gradient(135deg, #8c0a34, #ff3f6c);
+  color: white;
+  transition: background 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+.grossory-user-modal-content.button:hover,
+.snacks-user-modal-content.button:hover,
+.soap-user-modal-content.button:hover,
+.beauty-user-modal-content.button:hover {
+  background: linear-gradient(135deg, #70082c, #ff1f5a);
+}
+
+
+/* ===================== OUT OF STOCK ===================== */
+.grossory-home-card.out-of-stock,
+.snacks-home-card.out-of-stock,
+.soap-home-card.out-of-stock,
+.beauty-home-card.out-of-stock,
+.grossory-user-card.out-of-stock,
+.snacks-user-card.out-of-stock,
+.soap-user-card.out-of-stock,
+.beauty-user-card.out-of-stock {
+  opacity: 0.6;
+  position: relative;
+}
+
+.grossory-home-card.out-of-stock::after,
+.snacks-home-card.out-of-stock::after,
+.soap-home-card.out-of-stock::after,
+.beauty-home-card.out-of-stock::after,
+.grossory-user-card.out-of-stock::after,
+.snacks-user-card.out-of-stock::after,
+.soap-user-card.out-of-stock::after,
+.beauty-user-card.out-of-stock::after {
+  content: "OUT OF STOCK";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 10;
+}
+
+/* ===================== Search Bars ===================== */
+.grossory-home-title-bar-search-bar,
+.snacks-home-title-bar-search-bar,
+.soap-home-title-bar-search-bar,
+.beauty-home-title-bar-search-bar,
+.grossory-user-title-bar-search-bar,
+.snacks-user-title-bar-search-bar,
+.soap-user-title-bar-search-bar,
+.beauty-user-title-bar-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  /* border: 1px solid #ddd; */
+  border-radius: 50px;
+  width: 320px;
+  max-width: 100%;
+  outline: none;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 5;
+}
+
+.grossory-home-title-bar-search-bar input,
+.snacks-home-title-bar-search-bar input,
+.soap-home-title-bar-search-bar input,
+.beauty-home-title-bar-search-bar input,
+.grossory-user-title-bar-search-bar input,
+.snacks-user-title-bar-search-bar input,
+.soap-user-title-bar-search-bar input,
+.beauty-user-title-bar-search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #333;
+  min-width: 0;
+}
+
+/* Add Button */
+.add-button {
+  background: rgb(44, 172, 150);
+  color: black;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  z-index: 2;
+}
+
+.add-button:hover {
+  background: rgb(27, 129, 112);
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* ===================== Tabs ===================== */
+.grossory-user-tabs,
+.snacks-user-tabs,
+.soap-user-tabs,
+.beauty-user-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+.grossory-user-tabs button,
+.snacks-user-tabs button,
+.soap-user-tabs button,
+.beauty-user-tabs button {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.grossory-user-tabs button.active,
+.snacks-user-tabs button.active,
+.soap-user-tabs button.active,
+.beauty-user-tabs button.active {
+  background: linear-gradient(135deg, #8c0a34, #ff3f6c);
+  color: #fff;
+  border: none;
+  margin-left: 0;
+}
+
+/* ===================== Responsive Design ===================== */
+@media (max-width: 1200px) {
+  .grossory-home-card,
+  .snacks-home-card,
+  .soap-home-card,
+  .beauty-home-card,
+  .grossory-user-card,
+  .snacks-user-card,
+  .soap-user-card,
+  .beauty-user-card {
+    flex: 1 1 30%;
+  }
+}
+
+@media (max-width: 992px) {
+  .grossory-home-card,
+  .snacks-home-card,
+  .soap-home-card,
+  .beauty-home-card,
+  .grossory-user-card,
+  .snacks-user-card,
+  .soap-user-card,
+  .beauty-user-card {
+    flex: 1 1 45%;
+  }
+
+  .grossory-home-title-bar h1,
+  .snacks-home-title-bar h1,
+  .soap-home-title-bar h1,
+  .beauty-home-title-bar h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grossory-home-card,
+  .snacks-home-card,
+  .soap-home-card,
+  .beauty-home-card,
+  .grossory-user-card,
+  .snacks-user-card,
+  .soap-user-card,
+  .beauty-user-card {
+    flex: 1 1 90%;
+    max-width: 95%;
+  }
+
+  .grossory-home-title-bar,
+  .snacks-home-title-bar,
+  .soap-home-title-bar,
+  .beauty-home-title-bar,
+  .grossory-user-title-bar,
+  .snacks-user-title-bar,
+  .soap-user-title-bar,
+  .beauty-user-title-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .grossory-home-title-bar-search-bar,
+  .snacks-home-title-bar-search-bar,
+  .soap-home-title-bar-search-bar,
+  .beauty-home-title-bar-search-bar,
+  .grossory-user-title-bar-search-bar,
+  .snacks-user-title-bar-search-bar,
+  .soap-user-title-bar-search-bar,
+  .beauty-user-title-bar-search-bar {
+    width: 90%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .grossory-home-card,
+  .snacks-home-card,
+  .soap-home-card,
+  .beauty-home-card,
+  .grossory-user-card,
+  .snacks-user-card,
+  .soap-user-card,
+  .beauty-user-card {
+    flex: 1 1 100%;
+    max-width: 320px;
+  }
+
+  .grossory-home-modal-content,
+  .snacks-home-modal-content,
+  .soap-home-modal-content,
+  .beauty-home-modal-content,
+  .grossory-user-modal-content,
+  .snacks-user-modal-content,
+  .soap-user-modal-content,
+  .beauty-user-modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .modal-action-buttons {
+    flex-direction: column;
+  }
+
+  .page-loading {
+    padding: 40px 15px;
+    min-height: 40vh;
+  }
+  
+  .page-loading i {
+    font-size: 2.5rem;
+  }
+  
+  .page-loading h3 {
+    font-size: 1.3rem;
+  }
+}
+
+.product-info {
+  flex: 1;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 40px;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.final-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #8c0a34;
+}
+
+.user-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.add-cart-btn, .home-buy-now-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.add-cart-btn {
+  background: #e9ecef;
+  color: #495057;
+  border: 1px solid #dee2e6;
+}
+
+.add-cart-btn:hover:not(:disabled) {
+  background: #dee2e6;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.buy-now-btn {
+  background: linear-gradient(135deg, #8c0a34, #ff3f6c);
+  color: white;
+  border: 1px solid #8c0a34;
+}
+
+.buy-now-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(140, 10, 52, 0.3);
+}
+
+.buy-now-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+/* Discount Badge - Matching Product Pages */
+.discount {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #8c0a34, #ff3f6c);
+  color: white;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Home Badge for Featured Products */
+.home-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #28a745;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Out of Stock Overlay */
+.out-of-stock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 5;
+  border-radius: 12px;
+}
+
+.out-of-stock {
+  opacity: 0.6;
+}
+
+/* Enhanced modal styles */
+.cart-options {
+  margin: 15px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.save-for-later-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.save-for-later-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.options-info {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.options-info ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.options-info li {
+  margin-bottom: 5px;
+}
+
+.modal-action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  background: #007bff;
+  color: white;
+}
+
+.secondary-btn {
+  background: #6c757d;
+  color: white;
+}
+
+.confirm-btn {
+  background: #28a745;
+  color: white;
+}
+
+.cancel-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.disabled-btn {
+  background: #ccc !important;
+  cursor: not-allowed !important;
+}
+
+/* Button loading state */
+.button-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
