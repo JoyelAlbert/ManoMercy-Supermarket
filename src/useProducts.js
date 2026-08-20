@@ -93,13 +93,20 @@ const getFallbackProducts = () => {
       throw new Error(`Server error: ${res.status} ${res.statusText}`);
     }
 
-    const data = await res.json();
+   const data = await res.json();
 
-    console.log(`✅ Successfully fetched ${data.length} products`);
+console.log("📦 API Response:", data);
 
-    setAllProducts(data);
-    setHomeProducts(
-      data.filter((p) => p.showOnHome).slice(0, 8)
+const products = Array.isArray(data)
+  ? data
+  : data.products || [];
+
+console.log(`✅ Successfully fetched ${products.length} products`);
+
+setAllProducts(products);
+
+setHomeProducts(
+  products.filter((p) => p.showOnHome).slice(0, 8)
     );
 
   } catch (err) {
