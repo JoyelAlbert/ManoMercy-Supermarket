@@ -6,18 +6,14 @@ import "./Products.css";
 import ProductImage from "./ProductImage";
 import defaultSoapProducts from "./data/defaultSoapProducts";
 function Soap() {
-  const { cartItems = [], addToCart } = useCart();
+ const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
- const product = defaultSoapProducts;
 
-  // Use the custom hook
-  const {
-    allProducts,
-    isLoading,
-    error,
-    fetchProducts
-  } = useProducts("https://dummyjson.com/products/category/beauty");
+  const allProducts = defaultSoapProducts;
 
+  const isLoading = false;
+  const error = null;
+  const fetchProducts = () => {};
   const [search, setSearch] = useState("");
   const [activeSubcategory, setActiveSubcategory] = useState("All");
   const [showPopup, setShowPopup] = useState(false);
@@ -399,8 +395,8 @@ function Soap() {
                     key={p._id}
                   >
                     <ProductImage
-                      image={product.image}
-                      alt={product.name}
+                      image={p.image}
+                      alt={p.name}
                     />
                     <div className="soap-user-card-content">
                       <h2>{p.name}</h2>
