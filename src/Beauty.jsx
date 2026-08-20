@@ -9,14 +9,14 @@ import defaultBeautyProducts from "./data/defaultBeautyProducts";
 function Beauty() {
   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
-  const product = defaultBeautyProducts;   
+  const allProducts = defaultBeautyProducts;   
   // Use the custom hook
-  const {
-    allProducts,
-    isLoading,
-    error,
-    fetchProducts
-  } = useProducts( "https://dummyjson.com/products/category/beauty");
+  // const {
+  //   allProducts,
+  //   isLoading,
+  //   error,
+  //   fetchProducts
+  // } = useProducts( "https://dummyjson.com/products/category/beauty");
 
   const [search, setSearch] = useState("");
   const [activeSubcategory, setActiveSubcategory] = useState("All");
@@ -399,8 +399,8 @@ function Beauty() {
                     key={p._id}
                   >
                     <ProductImage
-                      image={product.image}
-                      alt={product.name}
+                      image={p.image}
+                      alt={p.name}
                     />
                     <div className="beauty-user-card-content">
                       <h2>{p.name}</h2>
