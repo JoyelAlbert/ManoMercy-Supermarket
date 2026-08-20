@@ -14,7 +14,7 @@ function Beauty() {
     isLoading,
     error,
     fetchProducts
-  } = useProducts("https://manomercy-supermarket.onrender.com/api/beauty_products");
+  } = useProducts( "https://dummyjson.com/products/category/beauty");
 
   const [search, setSearch] = useState("");
   const [activeSubcategory, setActiveSubcategory] = useState("All");
