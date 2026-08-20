@@ -1,0 +1,106 @@
+/* Page Loading Base Styles */
+.page-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 50vh;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.page-loading i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.page-loading h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.page-loading p {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Specific Page Loading Styles */
+.cart-loading i {
+  color: #28a745;
+}
+
+.profile-loading i {
+  color: #17a2b8;
+}
+
+.orders-loading i {
+  color: #ffc107;
+}
+
+.products-loading i {
+  color: #6f42c1;
+}
+
+/* Button Loading */
+.button-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.button-loading i {
+  font-size: 1rem;
+}
+
+/* Animation for variety */
+.cart-loading i {
+  animation: bounce 1s infinite;
+}
+
+.profile-loading i {
+  animation: pulse 1.5s infinite;
+}
+
+.products-loading i {
+  animation: flip 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes flip {
+  0% { transform: rotateY(0); }
+  50% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-loading {
+    padding: 40px 15px;
+    min-height: 40vh;
+  }
+  
+  .page-loading i {
+    font-size: 2.5rem;
+  }
+  
+  .page-loading h3 {
+    font-size: 1.3rem;
+  }
+}
