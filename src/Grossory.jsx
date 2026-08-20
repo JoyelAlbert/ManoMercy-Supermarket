@@ -14,12 +14,12 @@ function Grocery() {
   const navigate = useNavigate();
   const product = defaultGroceryProducts;
   // Use the custom hook
-  const {
-    allProducts,
-    isLoading,
-    error,
-    fetchProducts
-  } = useProducts( "https://dummyjson.com/products/category/groceries");
+  // const {
+  //   allProducts,
+  //   isLoading,
+  //   error,
+  //   fetchProducts
+  // } = useProducts( "https://dummyjson.com/products/category/groceries");
 
   const [search, setSearch] = useState("");
   const [mainCategory, setMainCategory] = useState("grossory");
