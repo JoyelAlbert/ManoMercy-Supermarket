@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
  import "./Products.css";
 import ProductImage from "./ProductImage";
 import defaultGroceryProducts from "./data/defaultGroceryProducts";
-
+import useProducts from "./useProducts";
 
  
 
