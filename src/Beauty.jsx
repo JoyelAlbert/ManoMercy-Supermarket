@@ -10,13 +10,9 @@ function Beauty() {
   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
   const allProducts = defaultBeautyProducts;   
-  // Use the custom hook
-  // const {
-  //   allProducts,
-  //   isLoading,
-  //   error,
-  //   fetchProducts
-  // } = useProducts( "https://dummyjson.com/products/category/beauty");
+  const isLoading = false;
+  const error = null;
+  const fetchProducts = () => {};
 
   const [search, setSearch] = useState("");
   const [activeSubcategory, setActiveSubcategory] = useState("All");
