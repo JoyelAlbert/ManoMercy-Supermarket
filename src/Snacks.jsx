@@ -8,16 +8,12 @@ import defaultSnacksProducts from "./data/defaultSnacksProducts";
 function Snacks() {
   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
- const product = defaultSnacksProducts;
 
-  // Use the custom hook
-  const {
-    allProducts,
-    isLoading,
-    error,
-    fetchProducts
-  } = useProducts("https://dummyjson.com/products/category/groceries");
+  const allProducts = defaultSnacksProducts;
 
+  const isLoading = false;
+  const error = null;
+  const fetchProducts = () => {};
   const [search, setSearch] = useState("");
   const [activeSubcategory, setActiveSubcategory] = useState("All");
   const [showPopup, setShowPopup] = useState(false);
@@ -399,8 +395,8 @@ function Snacks() {
                     key={p._id}
                   >
                     <ProductImage
-                        image={product.image}
-                        alt={product.name}
+                        image={p.image}
+                        alt={p.name}
                       />
                     <div className="snacks-user-card-content">
                       <h2>{p.name}</h2>
