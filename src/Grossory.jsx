@@ -12,7 +12,7 @@ import defaultGroceryProducts from "./data/defaultGroceryProducts";
 function Grocery() {
   const { cartItems = [], addToCart } = useCart();
   const navigate = useNavigate();
-  const product = defaultGroceryProducts;
+  const allProducts = defaultGroceryProducts;
   // Use the custom hook
   // const {
   //   allProducts,
