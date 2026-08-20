@@ -101,7 +101,7 @@ const fetchHomeProductsWithQuery = () => {
     const homeProductsData = {
       grocery: defaultGroceryProducts.slice(0, 9),
       snacks: defaultSnacksProducts.slice(0, 9),
-      soap: defaultSoapProducts.slice(1, 8),
+      soap: defaultSoapProducts.slice(0, 9),
       beauty: defaultBeautyProducts.slice(0, 9),
     };
 
