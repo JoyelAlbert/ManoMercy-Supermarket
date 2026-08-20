@@ -115,7 +115,7 @@ const fetchHomeProductsWithQuery = () => {
     setHomeProducts(homeProductsData);
     setLoading(false);
   } catch (err) {
-    console.error("❌ Error loading default products:", err);
+    console.error("Error loading default products:", err);
     setError("Failed to load featured products");
     setLoading(false);
   }
