@@ -401,8 +401,8 @@ function Grocery() {
                     key={p._id}
                   >
                     <ProductImage
-                      image={product.image}
-                      alt={product.name}
+                      image={p.image}
+                      alt={p.name}
                     />
                     <div className="grossory-user-card-content">
                       <h2>{p.name}</h2>
